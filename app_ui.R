@@ -3,10 +3,10 @@ library(shiny)
 source("analysis.R")
 
 home_page <- tabPanel(
-  "Overview",
+  "Home",
   sidebarLayout(
     sidebarPanel(
-      p("t")
+      p("The Data")
     ),
     mainPanel(
       h1("title")
@@ -14,6 +14,7 @@ home_page <- tabPanel(
   )
 )
 page_two <- tabPanel(
+  "Mission Statement",
   sidebarLayout(
     sidebarPanel(
       p("t")
