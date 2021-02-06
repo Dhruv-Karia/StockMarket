@@ -9,7 +9,7 @@ home_page <- tabPanel(
         min = 0,
         max = 52,
         value = 52
-      ),
+      )
     ),
     mainPanel(
       "title"
@@ -18,13 +18,15 @@ home_page <- tabPanel(
   )
 )
 page_two <- tabPanel(
-  "Mission Statement",
-  sidebarLayout(
-    sidebarPanel(
-      "[Where we're from / who we are]"
-    ),
-    mainPanel(
-      "[Why we're doing this]"
+  fillPage(
+    title = "Your Spotify Listening Habits",
+    add_busy_spinner(
+      spin = "fingerprint",
+      color = "#000000",
+      margins = c(40, 20),
+      height = "5%",
+      width = "5%",
+      position = "bottom-right"
     )
   )
 )
