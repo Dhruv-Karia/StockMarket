@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 # Define server
 source("analysis.R")
-server <- function(input, output) {
-  output$plot <- renderPlotly({
-    plot
-  })
-=======
 server <- function(input, output) {
   
   dataInput <- reactive({
@@ -27,6 +21,4 @@ server <- function(input, output) {
     source("scripts/top_ten.R")
     return(top)
   })
-  
->>>>>>> f45bfe6a1fb4543d597d44dbac73ab67ad377fd8
 }
