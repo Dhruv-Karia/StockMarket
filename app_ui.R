@@ -9,7 +9,7 @@ home_page <- tabPanel(
         min = 0,
         max = 52,
         value = 52
-      ),
+      )
     ),
     mainPanel(
       "title"
