@@ -7,7 +7,8 @@ home_page <- tabPanel(
       p("The Data")
     ),
     mainPanel(
-      h1("title")
+      h1("title"),
+      plotlyOutput(outputId = "plot")
     )
   )
 )
