@@ -5,74 +5,77 @@ home_page <- tabPanel(
   titlePanel("Stock Visualizations"),
   sidebarLayout(
     sidebarPanel(
-      helpText("Select a stock to examine. 
-        Information will be collected from yahoo finance."),
-      
+      helpText(
+        "Select a date range and a stock to examine.
+        Information collected from Yahoo Finance."
+      ),
       #textInput("symb", "Symbol", "AMC"),
-      dateRangeInput("dates", 
-                     "Date range",
-                     start = "2013-01-01", 
-                     end = as.character(Sys.Date())),
+      dateRangeInput(
+        "dates",
+        "Date range",
+        start = "2013-01-01",
+        end = as.character(Sys.Date())
+      ),
       
       selectInput("symb", "Top Stocks:",
                   c(symbols)),
       
+      
       actionButton("get", "Get Stock"),
-      
       br(),
       br(),
-      
-      checkboxInput("log", "Plot y axis on log scale", 
+      checkboxInput("log", "Plot y axis on log scale",
                     value = FALSE)
     ),
     
-    mainPanel(plotOutput("plot"), br(), br(), DT::dataTableOutput("top_ten")),
+    mainPanel(
+      plotOutput("plot"),
+      br(),
+      br(),
+      DT::dataTableOutput("top_ten"),
+    )
   )
 )
 
-page_two <- tabPanel(
-  "Mission Statement",
-  sidebarLayout(
-    sidebarPanel(
-      h1("About Us:"),
-      p("We are Augene Pak, Dhruv Karia, Justin Zeng, and Max Bennett. We are
+page_two <- tabPanel("Mission Statement",
+                     sidebarLayout(sidebarPanel(
+                       h1("About Us:"),
+                       p(
+                         "We are Augene Pak, Dhruv Karia, Justin Zeng, and Max Bennett. We are
         Informatics majors in the University of Washington and are each a member
-        of the Information School's class of 2024.")
-    ),
-    mainPanel(
-      h1("Our Mission:"),
-      p("Our mission is to enable retail traders with the tools and knowledge
-        needed to invest like a pro.")
-    ),
-    position = "right"
-  )
-)
+        of the Information School's class of 2024."
+                       )
+                     ),
+                     mainPanel(
+                       h1("Our Mission:"),
+                       p(
+                         "Our mission is to enable retail traders with the tools and knowledge
+        needed to invest like a pro."
+                       )
+                     ),
+                     position = "right"))
 
-news_page <- tabPanel(
-  "Top 10 News",
-  sidebarLayout(
-    sidebarPanel(
-      h1("Choose a Stock"),
-      selectInput("chooseSymb", "Options", c(symbols)),
-      h1("Choose a News Source"),
-      selectInput("chooseSource", "Options", terms_sources$sources)
-    ),
-    mainPanel(
-      h1("Our Mission:"),
-      textOutput("news")
-    ),
-    position = "right"
-  )
-)
+news_page <- tabPanel("Top 10 News",
+                      sidebarLayout(
+                        sidebarPanel(
+                          h1("Choose a Stock"),
+                          selectInput("chooseSymb", "Options", c(symbols)),
+                          h1("Choose a News Source"),
+                          selectInput("chooseSource", "Options", terms_sources$sources)
+                        ),
+                        mainPanel(h1("Our Mission:"),
+                                  textOutput("news")),
+                      ))
 
+
+# Define UI
 ui <- fluidPage(
   theme = shinytheme("yeti"),
-  navbarPage(
-    "Stocklytics",
-    home_page,
-    page_two,
-    news_page
-  ),
+  navbarPage("Stocklytics",
+             home_page,
+             page_two,
+             news_page),
+  # Loading icon
   add_busy_spinner(
     spin = "fingerprint",
     color = "#333333",
