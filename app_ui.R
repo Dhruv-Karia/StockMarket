@@ -1,16 +1,32 @@
-source("analysis.R")
-
+source("scripts/top_ten.R")
 home_page <- tabPanel(
   "Overview",
+  titlePanel("Stock Visualizations"),
   sidebarLayout(
     sidebarPanel(
-      p("t")
+      helpText("Select a stock to examine. 
+        Information will be collected from yahoo finance."),
+      
+      #textInput("symb", "Symbol", "AMC"),
+      dateRangeInput("dates", 
+                     "Date range",
+                     start = "2013-01-01", 
+                     end = as.character(Sys.Date())),
+      
+      selectInput("symb", "Top Stocks:",
+                  c(symbols)),
+      
+      actionButton("get", "Get Stock"),
+      
+      br(),
+      br(),
+      
+      checkboxInput("log", "Plot y axis on log scale", 
+                    value = FALSE)
     ),
-    mainPanel(
-      h1("title")
-    )
-  )
-)
+    
+    mainPanel(plotOutput("plot"), br(), br(), DT::dataTableOutput("top_ten")),
+  ))
 
 page_two <- tabPanel(
   "Mission Statement",
@@ -43,6 +59,7 @@ ui <- fluidPage(
     page_two
   ),
   add_busy_spinner(
+<<<<<<< HEAD
       spin = "fingerprint",
       color = "#333333",
       margins = c(40, 20),
@@ -50,5 +67,14 @@ ui <- fluidPage(
       width = "5%",
       position = "bottom-right",
       timeout = 50
+=======
+    spin = "fingerprint",
+    color = "#FFFFFF",
+    margins = c(40, 20),
+    height = "5%",
+    width = "5%",
+    position = "bottom-right",
+    timeout = 50,
+>>>>>>> f45bfe6a1fb4543d597d44dbac73ab67ad377fd8
   )
 )
