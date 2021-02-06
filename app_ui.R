@@ -59,22 +59,12 @@ ui <- fluidPage(
     page_two
   ),
   add_busy_spinner(
-<<<<<<< HEAD
-      spin = "fingerprint",
-      color = "#333333",
-      margins = c(40, 20),
-      height = "5%",
-      width = "5%",
-      position = "bottom-right",
-      timeout = 50
-=======
     spin = "fingerprint",
-    color = "#FFFFFF",
+    color = "#333333",
     margins = c(40, 20),
     height = "5%",
     width = "5%",
     position = "bottom-right",
-    timeout = 50,
->>>>>>> f45bfe6a1fb4543d597d44dbac73ab67ad377fd8
+    timeout = 50
   )
 )
