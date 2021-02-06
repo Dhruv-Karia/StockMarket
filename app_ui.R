@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 page_one <- tabPanel(
   "ScatterD3 Graph",
   sidebarLayout(
@@ -22,6 +23,19 @@ page_one <- tabPanel(
     ),
     
     mainPanel(plotOutput("plot"))
+=======
+source("analysis.R")
+
+home_page <- tabPanel(
+  "Overview",
+  sidebarLayout(
+    sidebarPanel(
+      p("t")
+    ),
+    mainPanel(
+      h1("title")
+    )
+>>>>>>> 3be5f4c3db0ad263e011031c87552d5d963c7528
   )
 )
 
@@ -56,6 +70,7 @@ ui <- fluidPage(
     page_two
   ),
   add_busy_spinner(
+<<<<<<< HEAD
     spin = "fingerprint",
     color = "#FFFFFF",
     margins = c(40, 20),
@@ -63,5 +78,14 @@ ui <- fluidPage(
     width = "5%",
     position = "bottom-right",
     timeout = 50
+=======
+      spin = "fingerprint",
+      color = "#FFFFFF",
+      margins = c(40, 20),
+      height = "5%",
+      width = "5%",
+      position = "bottom-right",
+      timeout = 50
+>>>>>>> 3be5f4c3db0ad263e011031c87552d5d963c7528
   )
 )
