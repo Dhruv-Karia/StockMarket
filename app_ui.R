@@ -63,7 +63,7 @@ news_page <- tabPanel("Top 10 News",
                           h1("Choose a News Source"),
                           selectInput("chooseSource", "Options", terms_sources$sources)
                         ),
-                        mainPanel(h1("Our Mission:"),
+                        mainPanel(h1("News"),
                                   textOutput("news")),
                       ))
 
