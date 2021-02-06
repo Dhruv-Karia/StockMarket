@@ -1,12 +1,5 @@
-library(tidyverse)
-library(rvest)
-library(BatchGetSymbols)
-library(plotly)
-library(ggplot2)
-library(quantmod)
-
 content <- read_html("http://gambiste.com/")
 tables <- content %>% html_table(fill = TRUE)
 df <- do.call(rbind.data.frame, tables)
-
-
+top <- head(df, 10)
+symbols <- top[['Symbol']]
