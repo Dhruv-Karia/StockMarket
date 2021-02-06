@@ -1,17 +1,20 @@
-<<<<<<< HEAD
-page_one <- tabPanel(
-  "ScatterD3 Graph",
+source("scripts/top_ten.R")
+home_page <- tabPanel(
+  "Overview",
+  titlePanel("Stock Visualizations"),
   sidebarLayout(
     sidebarPanel(
       helpText("Select a stock to examine. 
         Information will be collected from yahoo finance."),
       
-      textInput("symb", "Symbol", "SPY"),
-      
+      #textInput("symb", "Symbol", "AMC"),
       dateRangeInput("dates", 
                      "Date range",
                      start = "2013-01-01", 
                      end = as.character(Sys.Date())),
+      
+      selectInput("symb", "Top Stocks:",
+                  c(symbols)),
       
       actionButton("get", "Get Stock"),
       
@@ -22,22 +25,8 @@ page_one <- tabPanel(
                     value = FALSE)
     ),
     
-    mainPanel(plotOutput("plot"))
-=======
-source("analysis.R")
-
-home_page <- tabPanel(
-  "Overview",
-  sidebarLayout(
-    sidebarPanel(
-      p("t")
-    ),
-    mainPanel(
-      h1("title")
-    )
->>>>>>> 3be5f4c3db0ad263e011031c87552d5d963c7528
-  )
-)
+    mainPanel(plotOutput("plot"), br(), br(), DT::dataTableOutput("top_ten")),
+  ))
 
 page_two <- tabPanel(
   "Mission Statement",
@@ -70,22 +59,12 @@ ui <- fluidPage(
     page_two
   ),
   add_busy_spinner(
-<<<<<<< HEAD
     spin = "fingerprint",
     color = "#FFFFFF",
     margins = c(40, 20),
     height = "5%",
     width = "5%",
     position = "bottom-right",
-    timeout = 50
-=======
-      spin = "fingerprint",
-      color = "#FFFFFF",
-      margins = c(40, 20),
-      height = "5%",
-      width = "5%",
-      position = "bottom-right",
-      timeout = 50
->>>>>>> 3be5f4c3db0ad263e011031c87552d5d963c7528
+    timeout = 50,
   )
 )

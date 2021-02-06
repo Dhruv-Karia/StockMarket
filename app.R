@@ -6,6 +6,7 @@ library(rvest)
 library(quantmod)
 library(dplyr)
 library(ggplot2)
+library(DT)
 
 
 # Source UI and server
