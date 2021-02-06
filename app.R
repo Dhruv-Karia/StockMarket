@@ -1,6 +1,7 @@
 # Load libraries
 library(shiny)
 library(shinybusy)
+library(shinythemes)
 
 # Source UI and server
 source("app_ui.R")
