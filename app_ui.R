@@ -1,21 +1,15 @@
 source("analysis.R")
 home_page <- tabPanel(
   sidebarLayout(
-    "Top Recent Stock Prices",
-    sidebarPanel(
-      sliderInput(
-        inputId = "Week",
-        label = "Week Slider",
-        min = 0,
-        max = 52,
-        value = 52
-      )
-    ),
-    mainPanel(
-      "title"
-     # plotOutput(outputId = "")
-    )
-  )
+  #   "Top Recent Stock Prices",
+     sidebarPanel(
+      
+     ),
+     mainPanel(
+  #     "title"
+  #    # plotOutput(outputId = "")
+     )
+   )
 )
 page_two <- tabPanel(
   "Mission Statement",
@@ -31,7 +25,7 @@ page_two <- tabPanel(
 
 ui <- fluidPage(
   navbarPage(
-    page_one,
+    home_page,
     page_two
   )
 )
