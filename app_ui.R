@@ -1,30 +1,32 @@
-# source("analysis.R")
-page_one <- tabPanel(
-  "placeholder1",
-  fluidPage(
-    "bruh1"
+source("analysis.R")
+
+home_page <- tabPanel(
+  "Overview",
+  sidebarLayout(
+    sidebarPanel(
+      p("t")
+    ),
+    mainPanel(
+      h1("title")
+    )
   )
 )
 
 page_two <- tabPanel(
-  "placeholder2",
-  fluidPage(
-    "bruh2"
-  )
-)
-
-page_three <- tabPanel(
-  "placeholder3",
-  fluidPage(
-    "bruh3"
+  sidebarLayout(
+    sidebarPanel(
+      p("t")
+    ),
+    mainPanel(
+      h1("title")
+    )
   )
 )
 
 ui <- fluidPage(
   navbarPage(
-    "STOCKLYTICS",
-    page_one,
-    page_three,
+    "Stocklytics",
+    home_page,
     page_two
   ),
   add_busy_spinner(
