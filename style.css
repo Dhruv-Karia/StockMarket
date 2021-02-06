@@ -29,10 +29,6 @@ ul{
   font-size: 15px;
 }
 
-li, a, strong{
-  font-size: 15px;
-}
-
 .navbar-default .navbar-nav>li>a {
   color: #fff;
   font-size: 18px;
