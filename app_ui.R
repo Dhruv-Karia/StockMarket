@@ -18,11 +18,15 @@ home_page <- tabPanel(
     )
   )
 )
-
 page_two <- tabPanel(
+  "Mission Statement",
   sidebarLayout(
-    sidebarPanel(),
-    mainPanel()
+    sidebarPanel(
+      "[Where we're from / who we are]"
+    ),
+    mainPanel(
+      "[Why we're doing this]"
+    )
   )
 )
 
