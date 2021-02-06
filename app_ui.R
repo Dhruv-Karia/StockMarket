@@ -1,4 +1,4 @@
-page_one <- tabPanel(
+page_one <- fluidPage(
   "[Actual Data]"
 )
 
