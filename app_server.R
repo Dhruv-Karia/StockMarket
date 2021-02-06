@@ -1,5 +1,7 @@
 # Define server
-source("analysis.R")
+source("scripts/analysis.R")
+source("apikey.R")
+
 server <- function(input, output) {
   
   dataInput <- reactive({
@@ -20,5 +22,12 @@ server <- function(input, output) {
   output$top_ten<-renderDataTable({
     source("scripts/top_ten.R")
     return(top)
+  })
+  
+  output$news <- renderText({
+    new_results <- get_headlines(query = input$chooseSymb,
+                                 sources = input$chooseSource,
+                                 api_key = Sys.getenv(("NEWS_API_KEY")))
+    return(news_results)
   })
 }

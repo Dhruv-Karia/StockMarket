@@ -21,3 +21,4 @@ for (x in symbols) {
   candle <- candleChart(result[[x]], up.col="darkgreen",dn.col="red",theme = "white", name = x)
 }
 
+

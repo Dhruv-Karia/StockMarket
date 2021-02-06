@@ -1,4 +1,5 @@
 source("scripts/top_ten.R")
+
 home_page <- tabPanel(
   "Overview",
   titlePanel("Stock Visualizations"),
@@ -47,12 +48,30 @@ page_two <- tabPanel(
   )
 )
 
+news_page <- tabPanel(
+  "Top 10 News",
+  sidebarLayout(
+    sidebarPanel(
+      h1("Choose a Stock"),
+      selectInput("chooseSymb", "Options", c(symbols)),
+      h1("Choose a News Source"),
+      selectInput("chooseSource", "Options", terms_sources$sources)
+    ),
+    mainPanel(
+      h1("Our Mission:"),
+      textOutput("news")
+    ),
+    position = "right"
+  )
+)
+
 ui <- fluidPage(
   theme = shinytheme("yeti"),
   navbarPage(
     "Stocklytics",
     home_page,
-    page_two
+    page_two,
+    news_page
   ),
   add_busy_spinner(
     spin = "fingerprint",

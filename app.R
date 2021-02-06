@@ -8,6 +8,7 @@ library(quantmod)
 library(dplyr)
 library(ggplot2)
 library(DT)
+library(newsanchor)
 
 # Source UI and server
 source("app_ui.R")

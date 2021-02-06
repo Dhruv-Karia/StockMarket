@@ -1,0 +1,4 @@
+library(newsanchor)
+
+set_api_key(api_key = "e9521f43b756474db9c3d82833252b6f",
+            path = "./.Renviron")
