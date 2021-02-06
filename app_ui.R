@@ -1,4 +1,5 @@
 source("scripts/top_ten.R")
+
 home_page <- tabPanel(
   "Overview",
   titlePanel("Stock Visualizations"),
@@ -19,6 +20,7 @@ home_page <- tabPanel(
       selectInput("symb", "Top Stocks:",
                   c(symbols)),
       
+      
       actionButton("get", "Get Stock"),
       br(),
       br(),
@@ -30,8 +32,8 @@ home_page <- tabPanel(
       plotOutput("plot"),
       br(),
       br(),
-      DT::dataTableOutput("top_ten")
-    ),
+      DT::dataTableOutput("top_ten"),
+    )
   )
 )
 
@@ -48,23 +50,32 @@ page_two <- tabPanel("Mission Statement",
                      mainPanel(
                        h1("Our Mission:"),
                        p(
-                         "Lorem ipsum dolor sit amet, consectetur adipiscing
-        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum."
+                         "Our mission is to enable retail traders with the tools
+                         and knowledge needed to invest like a pro."
                        )
                      ),
                      position = "right"))
+
+news_page <- tabPanel("Top 10 News",
+                      sidebarLayout(
+                        sidebarPanel(
+                          h1("Choose a Stock"),
+                          selectInput("chooseSymb", "Options", c(symbols)),
+                          h1("Choose a News Source"),
+                          selectInput("chooseSource", "Options", terms_sources$sources)
+                        ),
+                        mainPanel(h1("News"),
+                                  textOutput("news")),
+                      ))
+
 
 # Define UI
 ui <- fluidPage(
   theme = shinytheme("yeti"),
   navbarPage("Stocklytics",
              home_page,
-             page_two),
+             page_two,
+             news_page),
   # Loading icon
   add_busy_spinner(
     spin = "fingerprint",

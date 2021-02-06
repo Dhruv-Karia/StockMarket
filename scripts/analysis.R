@@ -1,8 +1,9 @@
 library(tidyverse)
 library(rvest)
 library(quantmod)
-library(dplyr)
 library(ggplot2)
+library(BatchGetSymbols)
+library(plotly)
 
 content <- read_html("http://gambiste.com/")
 tables <- content %>% html_table(fill = TRUE)
@@ -19,4 +20,5 @@ for (x in symbols) {
   
   candle <- candleChart(result[[x]], up.col="darkgreen",dn.col="red",theme = "white", name = x)
 }
+
 
