@@ -8,8 +8,4 @@ content <- read_html("http://web.archive.org/web/20210131152856/http://gambiste.
 
 tables <- content %>% html_table(fill = TRUE)
 df <- do.call(rbind.data.frame, tables)
-<<<<<<< HEAD
 
-# Scatter <- 
-=======
->>>>>>> c6ee2ea02dd4a44b88dbf91e9c7eb0b6d52a1e84
