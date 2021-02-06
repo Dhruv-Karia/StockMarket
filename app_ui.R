@@ -36,6 +36,7 @@ page_two <- tabPanel(
 )
 
 ui <- fluidPage(
+  includeCSS("style.css"),
   navbarPage(
     "Stocklytics",
     home_page,
@@ -43,7 +44,7 @@ ui <- fluidPage(
   ),
   add_busy_spinner(
       spin = "fingerprint",
-      color = "#000000",
+      color = "#FFFFFF",
       margins = c(40, 20),
       height = "5%",
       width = "5%",
