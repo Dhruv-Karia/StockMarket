@@ -58,7 +58,7 @@ page_two <- tabPanel("Mission Statement",
 news_page <- tabPanel("Top 10 News",
                       sidebarLayout(
                         sidebarPanel(
-                          h1("Choose a Stock"),
+                          h1("Choose a Company"),
                           selectInput("chooseSymb", "Options", c(symbols)),
                           h1("Choose a News Source"),
                           selectInput("chooseSource", "Options", terms_sources$sources)
