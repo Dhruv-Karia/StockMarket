@@ -40,7 +40,8 @@ page_two <- tabPanel(
     ),
     mainPanel(
       h1("Our Mission:"),
-      p("Our mission is to enable retail traders with the tools and knowledge needed to invest like a pro.")
+      p("Our mission is to enable retail traders with the tools and knowledge
+        needed to invest like a pro.")
     ),
     position = "right"
   )
