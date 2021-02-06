@@ -8,10 +8,13 @@ library(quantmod)
 library(dplyr)
 library(ggplot2)
 library(DT)
+library(thematic)
+library(bslib)
 
 # Source UI and server
 source("app_ui.R")
 source("app_server.R")
 
 # Run shiny app
+thematic::thematic_shiny()
 shinyApp(ui = ui, server = server)

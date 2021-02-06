@@ -40,7 +40,7 @@ page_two <- tabPanel("Mission Statement",
                        h1("About Us:"),
                        p(
                          "We are Augene Pak, Dhruv Karia, Justin Zeng, and
-                         Max Bennett. We are Informatics majors in the 
+                         Max Bennett. We are Informatics majors in the
                          University of Washington and are each a member of the
                          Information School's class of 2024."
                        )
@@ -48,7 +48,7 @@ page_two <- tabPanel("Mission Statement",
                      mainPanel(
                        h1("Our Mission:"),
                        p(
-                         "Lorem ipsum dolor sit amet, consectetur adipiscing 
+                         "Lorem ipsum dolor sit amet, consectetur adipiscing
         elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
         commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
