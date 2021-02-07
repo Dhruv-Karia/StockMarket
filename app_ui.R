@@ -72,7 +72,7 @@ news_page <- tabPanel("Top 10 News",
 # Define UI
 ui <- fluidPage(
   theme = shinytheme("yeti"),
-  navbarPage("Stocklytics",
+  navbarPage("Stockalytics",
              home_page,
              page_two,
              news_page),

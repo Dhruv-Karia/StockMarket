@@ -12,7 +12,6 @@ library(newsanchor)
 library(jsonlite)
 library(httr)
 library(thematic)
-library(bslib)
 
 # Source UI and server
 source("app_ui.R")
