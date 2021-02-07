@@ -84,11 +84,10 @@ prediction <- tabPanel("Prediction Model",
 # Define UI
 ui <- fluidPage(
   theme = shinytheme("yeti"),
-  navbarPage("Stockalytics",
+  navbarPage("Stocklytics",
              home_page,
-             page_two,
              news_page,
-             prediction),
+             page_two),
   # Loading icon
   add_busy_spinner(
     spin = "fingerprint",
