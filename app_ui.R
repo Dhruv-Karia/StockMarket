@@ -1,7 +1,7 @@
 source("scripts/top_ten.R")
 
 home_page <- tabPanel(
-  "Overview",
+  "Twitter Analytics",
   titlePanel("Stock Visualizations"),
     fluidPage(
     sidebarLayout(
@@ -77,7 +77,7 @@ mission <- tabPanel("Mission Statement",
                      ),
                      position = "right"))
 
-news_page <- tabPanel("Top 10 News",
+news_page <- tabPanel("Trending Stock News",
                       sidebarLayout(
                         sidebarPanel(
                           h1("Choose a Company"),
@@ -130,9 +130,9 @@ ui <- fluidPage(
   navbarPage("Stocklytics",
              home_page,
              news_page,
+             reddit,
              maxed_out_page,
              prediction,
-             reddit,
              mission),
   # Loading icon
   add_busy_spinner(
