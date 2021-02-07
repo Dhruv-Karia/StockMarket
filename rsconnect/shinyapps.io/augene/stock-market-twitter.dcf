@@ -1,0 +1,13 @@
+name: stock-market-twitter
+title: stock-market-twitter
+username:
+account: augene
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3595653
+bundleId: 4191335
+url: https://augene.shinyapps.io/stock-market-twitter/
+when: 1612685887.93083
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: training.R
