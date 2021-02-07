@@ -19,11 +19,16 @@ symbols <- top[['Symbol']]
 result <- sapply(symbols, getSymbols, src = 'yahoo', auto.assign = FALSE, 
                  from = as.Date(Sys.time())-182, verbose=TRUE, simplify = FALSE)
 
-
 #plot(result$SNDL, main = "Visualizations")
 for (x in symbols) {
-  
-  candle <- candleChart(result[[x]], up.col="darkgreen",dn.col="red",theme = "white", name = x)
+  candle <-
+    candleChart(
+      result[[x]],
+      up.col = "darkgreen",
+      dn.col = "red",
+      theme = "white",
+      name = x
+    )
 }
 
 
