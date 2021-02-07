@@ -13,7 +13,7 @@ home_page <- tabPanel(
         dateRangeInput(
           "dates",
           "Date range",
-          start = "2013-01-01",
+          start = "2020-09-05",
           end = as.character(Sys.Date())
         ),
         selectInput("symb", "Top Stocks:",
