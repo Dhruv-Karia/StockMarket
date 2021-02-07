@@ -11,6 +11,12 @@ library(DT)
 library(newsanchor)
 library(jsonlite)
 library(httr)
+library(RedditExtractoR)
+library(gganimate)
+library(gifski)
+library(png)
+library(plotly)
+library(shinycssloaders)
 
 # Source UI and server
 source("app_ui.R")
