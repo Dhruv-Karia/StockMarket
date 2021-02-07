@@ -4,4 +4,6 @@
 f <- file.choose()
 df <- read.csv(f)
 top <- head(df, 10)
+top_table <- top %>% select(X, Rank, Name, Score, X3.Months.Perf) %>%
+  rename("Company Name" = Name, "3-Month Performance" = X3.Months.Perf)
 symbols <- top[['Symbol']]
