@@ -5,9 +5,9 @@ account: maxmiles
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3593925
-bundleId: 4189309
+bundleId: 4189489
 url: https://maxmiles.shinyapps.io/stocklytics/
-when: 1612635035.28035
+when: 1612638540.00952
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: README.md|style.css

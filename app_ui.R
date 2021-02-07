@@ -41,16 +41,17 @@ page_two <- tabPanel("Mission Statement",
                      sidebarLayout(sidebarPanel(
                        h1("About Us:"),
                        p(
-                         "We are Augene Pak, Dhruv Karia, Justin Zeng, and Max Bennett. We are
-        Informatics majors in the University of Washington and are each a member
-        of the Information School's class of 2024."
+                         "We are Augene Pak, Dhruv Karia, Justin Zeng, and
+                         Max Bennett. We are Informatics majors in the
+                         University of Washington and are each a member of the
+                         Information School's class of 2024."
                        )
                      ),
                      mainPanel(
                        h1("Our Mission:"),
                        p(
-                         "Our mission is to enable retail traders with the tools and knowledge
-        needed to invest like a pro."
+                         "Our mission is to enable retail traders with the tools
+                         and knowledge needed to invest like a pro."
                        )
                      ),
                      position = "right"))
