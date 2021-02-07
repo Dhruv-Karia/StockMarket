@@ -49,25 +49,24 @@ mission <- tabPanel("Mission Statement",
                       h1("ABOUT US"),
                       p(
                         "We are Augene Pak, Dhruv Karia, Justin Zeng, and
-                         Max Bennett. We are Informatics majors in the
-                         University of Washington and are each a member of the
-                         Information School's class of 2024."
+                         Max Bennett. We are Informatics majors at the
+                         University of Washington and are each a member of the 
+                         Class of 2024."
                       ),
                       tags$img(src = "https://ischool.uw.edu/sites/default/files/2020-03/iSchool_og.png", width = "325px")
                       # https://pbs.twimg.com/profile_images/1113979497261359107/jl4sZWA8_400x400.png
                     ),
                     mainPanel(
                       h1("OUR MISSION"),
-                      p("Our mission is to enable retail traders with the tools and knowledge needed to invest like a pro.
-                         We aim to be the most effective, comprehensive, and intuitive online trading information platform providing our
-                         customers with professional education and successful trading ideas on the best stocks. We can help you to trade
-                         successfully with our best stocks, amazing trading tools and straightforward analysis, all in an easy-to-use manner."
+                      p("Our mission is to provide efficient, comprehensive, and
+                      intuitive information regarding the effect of social media
+                      exposure on the stock market."
                       ),
                       h1("ABOUT STOCKLYTICS"),
-                      p("Our app provides an integrated stock trends platform for reading past events, focusing on providing research,
-                         trading, and analytics tools to traders. The platform provides a suite of tools that simplify stock trading analysis.
-                         Our app uses both twitter and reddit pages to figure out which stocks were talked about the most. Then, through
-                         organzing this data, we empower our traders with the knowledge and tools to trade profitably in the stock market.")
+                      p("Our app uses Twitter, Reddit, and popular news sources
+                        around the globe to determine which stocks were talked
+                        about the most. We do not provide a predictive platform
+                  that guarantees increased performance on future investments.")
                     ),
                     position = "right"))
 

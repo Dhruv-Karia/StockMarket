@@ -5,8 +5,8 @@ account: augene
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 3595663
-bundleId: 4191383
+bundleId: 4191579
 url: https://augene.shinyapps.io/stocklytics/
-when: 1612687464.19182
+when: 1612693338.53122
 asMultiple: FALSE
 asStatic: FALSE
