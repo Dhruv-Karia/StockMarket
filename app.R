@@ -16,14 +16,8 @@ library(gganimate)
 library(gifski)
 library(png)
 library(plotly)
+library(shinycssloaders)
 
-# Source UI and server
-source("app_ui.R")
-source("app_server.R")
-
-# Run shiny app
-# thematic::thematic_shiny()
-shinyApp(ui = ui, server = server)
 # Source UI and server
 source("app_ui.R")
 source("app_server.R")

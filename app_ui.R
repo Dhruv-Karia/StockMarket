@@ -3,7 +3,7 @@ source("scripts/top_ten.R")
 home_page <- tabPanel(
   "Overview",
   titlePanel("Stock Visualizations"),
-  fluidPage(
+    fluidPage(
     sidebarLayout(
       sidebarPanel(
         helpText(
@@ -97,6 +97,18 @@ prediction <- tabPanel("Prediction Model",
                                    textOutput("news")),
                        ))
 
+reddit <- tabPanel("Reddit Analytics",
+                      sidebarLayout(
+                        sidebarPanel(
+                          h1("Choose a Company"),
+                          selectInput("reddit1", "Options", c(symbols)),
+                          h1("Choose a Subreddit"),
+                          selectInput("reddit2", "Options", c("stocks", "wallstreetbets", "investing"))
+                        ),
+                        mainPanel(h1("Reddit Engagement for Each Stock"),
+                        withSpinner(imageOutput("r_graph"))),
+                      ))
+
 
 # Define UI
 ui <- fluidPage(
@@ -105,6 +117,7 @@ ui <- fluidPage(
              home_page,
              news_page,
              prediction,
+             reddit,
              mission),
   # Loading icon
   add_busy_spinner(
