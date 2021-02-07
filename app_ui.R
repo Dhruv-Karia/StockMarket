@@ -71,7 +71,7 @@ mission <- tabPanel("Mission Statement",
                     ),
                     position = "right"))
 
-news_page <- tabPanel("Trending Stock News",
+news_page <- tabPanel("News Analytics",
                       sidebarLayout(
                         sidebarPanel(
                           h1("Choose a Company"),
