@@ -17,16 +17,14 @@ server <- function(input, output) {
     return(dataInput())
   })
   
-<<<<<<< HEAD
-  output$plot <- renderPlot({ 
-    candleChart(dataInput(), up.col="darkgreen",dn.col="red",theme = "white", name = input$symb)
-=======
   output$plot <- renderPlot({
-    candleChart(dataInput(),
-                up.col = "darkgreen",
-                dn.col = "red",
-                theme = "white")
->>>>>>> aceaab1fd94e078fd4f2a00d5f3d3225342369d4
+    candleChart(
+      dataInput(),
+      up.col = "darkgreen",
+      dn.col = "red",
+      theme = "white",
+      name = input$symb
+    )
   })
   
   output$news <- renderText({

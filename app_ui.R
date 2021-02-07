@@ -5,15 +5,10 @@ home_page <- tabPanel(
   titlePanel("Stock Visualizations"),
   sidebarLayout(
     sidebarPanel(
-<<<<<<< HEAD
-      helpText("Select one of the Top 10 stocks to examine"),
-      
-=======
       helpText(
         "Select a date range and a stock to examine.
         Information collected from Yahoo Finance."
       ),
->>>>>>> aceaab1fd94e078fd4f2a00d5f3d3225342369d4
       #textInput("symb", "Symbol", "AMC"),
       dateRangeInput(
         "dates",
