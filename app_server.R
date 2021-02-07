@@ -54,7 +54,7 @@ server <- function(input, output) {
     fig <- ggplot(data = df, aes(x = X3.Months.Perf, y = Score, color = Rating)) +
       geom_point()+
       labs(
-        title = "Fat title",
+        title = "Complete Dataset",
         x = "3 Month Performance",
         y = "Score"
       )

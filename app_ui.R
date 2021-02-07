@@ -120,7 +120,6 @@ reddit <- tabPanel("Reddit Analytics",
 maxed_out_page <- tabPanel(
   "100% dataset",
   mainPanel(
-    h1("title"),
     dataTableOutput("OutputId")
   )
 )
