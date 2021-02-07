@@ -6,12 +6,12 @@ library(BatchGetSymbols)
 library(plotly)
 
 # comment this if gambiste is clownin us
-# tables <- content %>% html_table(fill = TRUE)
-# comment this if gambiste is clownin us 
-# df <- do.call(rbind.data.frame, tables)
+tables <- content %>% html_table(fill = TRUE)
+# comment this if gambiste is clownin us
+df <- do.call(rbind.data.frame, tables)
 
-f <- file.choose()
-df <- read.csv(f)
+# f <- file.choose()
+# df <- read.csv(f)
 top <- head(df, 10) 
 
 symbols <- top[['Symbol']]
