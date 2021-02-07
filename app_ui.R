@@ -3,40 +3,54 @@ source("scripts/top_ten.R")
 home_page <- tabPanel(
   "Overview",
   titlePanel("Stock Visualizations"),
-  sidebarLayout(
-    sidebarPanel(
-      helpText(
-        "Select a date range and a stock to examine.
-        Information collected from Yahoo Finance."
+  fluidPage(
+    sidebarLayout(
+      sidebarPanel(
+        helpText(
+          "Select a date range and a stock to examine.
+          Information collected from Yahoo Finance."
+        ),
+        #textInput("symb", "Symbol", "AMC"),
+        dateRangeInput(
+          "dates",
+          "Date range",
+          start = "2013-01-01",
+          end = as.character(Sys.Date())
+        ),
+        
+        selectInput("symb", "Top Stocks:",
+                    c(symbols)),
+        
+        
+        actionButton("get", "Get Stock"),
+        br(),
+        br(),
+        checkboxInput("log", "Plot y axis on log scale",
+                      value = FALSE)
       ),
-      #textInput("symb", "Symbol", "AMC"),
-      dateRangeInput(
-        "dates",
-        "Date range",
-        start = "2013-01-01",
-        end = as.character(Sys.Date())
-      ),
       
-      selectInput("symb", "Top Stocks:",
-                  c(symbols)),
-      
-      
-      actionButton("get", "Get Stock"),
-      br(),
-      br(),
-      checkboxInput("log", "Plot y axis on log scale",
-                    value = FALSE)
+      mainPanel(
+        plotOutput(
+          "plot"
+          ),
+        br(),
+        br()
+      )
     ),
-    
-    mainPanel(
-      plotOutput("plot"),
-      br(),
-      br(),
-      datatable(top, options = list(compact)) #%>% formatStyle(),
-    )
+    datatable(top_table, 
+              rownames = FALSE,
+              options = list(searching = FALSE,
+                             lengthChange = FALSE,
+                             paging = FALSE,
+                             initComplete = JS(
+                               "function(settings, json) {",
+                               "$(this.api().table().header()).css({'background-color': '#333333', 'color': '#fff'});",
+                               "}")
+                             )
+              )
   )
 )
-
+  
 page_two <- tabPanel("Mission Statement",
                      sidebarLayout(sidebarPanel(
                        h1("About Us:"),
@@ -74,8 +88,9 @@ ui <- fluidPage(
   theme = shinytheme("yeti"),
   navbarPage("Stockalytics",
              home_page,
-             page_two,
-             news_page),
+             news_page,
+             page_two
+             ),
   # Loading icon
   add_busy_spinner(
     spin = "fingerprint",
@@ -84,6 +99,6 @@ ui <- fluidPage(
     height = "5%",
     width = "5%",
     position = "bottom-right",
-    timeout = 50
+    timeout = 5
   )
 )
