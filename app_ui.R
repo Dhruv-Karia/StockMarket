@@ -51,7 +51,7 @@ home_page <- tabPanel(
   )
 )
   
-page_two <- tabPanel("Mission Statement",
+mission <- tabPanel("Mission Statement",
                      sidebarLayout(sidebarPanel(
                        h1("About Us:"),
                        p(
@@ -104,7 +104,8 @@ ui <- fluidPage(
   navbarPage("Stocklytics",
              home_page,
              news_page,
-             prediction),
+             prediction,
+             mission),
   # Loading icon
   add_busy_spinner(
     spin = "fingerprint",
