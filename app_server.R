@@ -24,11 +24,6 @@ server <- function(input, output) {
                 theme = "white")
   })
   
-  output$top_ten <- renderDataTable({
-    source("scripts/top_ten.R")
-    return(top)
-  })
-  
   output$news <- renderText({
     Sys.setenv("NEWS_API_KEY" = "e9521f43b756474db9c3d82833252b6f")
     news_results <- get_headlines(query = "Biden",

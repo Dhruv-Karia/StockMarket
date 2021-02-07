@@ -32,7 +32,7 @@ home_page <- tabPanel(
       plotOutput("plot"),
       br(),
       br(),
-      DT::dataTableOutput("top_ten"),
+      datatable(top, options = list(compact)) #%>% formatStyle(),
     )
   )
 )
@@ -51,7 +51,7 @@ page_two <- tabPanel("Mission Statement",
                        h1("Our Mission:"),
                        p(
                          "Our mission is to enable retail traders with the tools
-                         and knowledge needed to invest like a pro."
+                         and knowledge  needed to invest like a pro."
                        )
                      ),
                      position = "right"))
