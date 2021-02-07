@@ -11,8 +11,8 @@ server <- function(input, output) {
     return(dataInput())
   })
   
-  output$plot <- renderPlot({             
-    candleChart(dataInput(), up.col="darkgreen",dn.col="red",theme = "white")
+  output$plot <- renderPlot({ 
+    candleChart(dataInput(), up.col="darkgreen",dn.col="red",theme = "white", name = input$symb)
   })
   
   output$top_ten<-renderDataTable({

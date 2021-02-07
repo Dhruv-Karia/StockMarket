@@ -4,8 +4,7 @@ home_page <- tabPanel(
   titlePanel("Stock Visualizations"),
   sidebarLayout(
     sidebarPanel(
-      helpText("Select a stock to examine. 
-        Information will be collected from yahoo finance."),
+      helpText("Select one of the Top 10 stocks to examine"),
       
       #textInput("symb", "Symbol", "AMC"),
       dateRangeInput("dates", 
