@@ -3,44 +3,55 @@ source("scripts/top_ten.R")
 home_page <- tabPanel(
   "Overview",
   titlePanel("Stock Visualizations"),
-  sidebarLayout(
-    sidebarPanel(
-      helpText("Select one of the Top 10 stocks to examine"),
-
-      helpText(
-        "Select a date range and a stock to examine.
-        Information collected from Yahoo Finance."
+    fluidPage(
+    sidebarLayout(
+      sidebarPanel(
+        helpText(
+          "Select a date range and a stock to examine.
+          Information collected from Yahoo Finance."
+        ),
+        #textInput("symb", "Symbol", "AMC"),
+        dateRangeInput(
+          "dates",
+          "Date range",
+          start = "2013-01-01",
+          end = as.character(Sys.Date())
+        ),
+        
+        selectInput("symb", "Top Stocks:",
+                    c(symbols)),
+        
+        
+        actionButton("get", "Get Stock"),
+        br(),
+        br(),
+        checkboxInput("log", "Plot y axis on log scale",
+                      value = FALSE)
       ),
-
-      #textInput("symb", "Symbol", "AMC"),
-      dateRangeInput(
-        "dates",
-        "Date range",
-        start = "2013-01-01",
-        end = as.character(Sys.Date())
-      ),
-
-      selectInput("symb", "Top Stocks:",
-                  c(symbols)),
-
-
-      actionButton("get", "Get Stock"),
-      br(),
-      br(),
-      checkboxInput("log", "Plot y axis on log scale",
-                    value = FALSE)
+      
+      mainPanel(
+        plotOutput(
+          "plot"
+          ),
+        br(),
+        br()
+      )
     ),
-
-    mainPanel(
-      plotOutput("plot"),
-      br(),
-      br(),
-      datatable(top, options = list(compact)) #%>% formatStyle(),
-    )
+    datatable(top_table, 
+              rownames = FALSE,
+              options = list(searching = FALSE,
+                             lengthChange = FALSE,
+                             paging = FALSE,
+                             initComplete = JS(
+                               "function(settings, json) {",
+                               "$(this.api().table().header()).css({'background-color': '#333333', 'color': '#fff'});",
+                               "}")
+                             )
+              )
   )
 )
-
-page_two <- tabPanel("Mission Statement",
+  
+mission <- tabPanel("Mission Statement",
                      sidebarLayout(sidebarPanel(
                        h1("About Us:"),
                        p(
@@ -64,14 +75,29 @@ news_page <- tabPanel("Top 10 News",
                         sidebarPanel(
                           h1("Choose a Company"),
                           selectInput("chooseQuery", "Options", c(symbols)),
-                          h1("Choose a News Source"),
+                          h1("Choose a Source"),
                           selectInput("chooseSource", "Options", terms_sources$sources)
                         ),
-                        mainPanel(h1("News"),
-                                  textOutput("news")),
-                      ))
+                        mainPanel(
+                          h1("News"),
+                          dataTableOutput("news")
+                        )
+                      ),
+                )
 
-page_four <- tabPanel("Reddit Analytics",
+prediction <- tabPanel("Prediction Model",
+                       sidebarLayout(
+                         sidebarPanel(
+                           h1("Choose a Company"),
+                           selectInput("chooseQuery", "Options", c(symbols)),
+                           h1("Choose a News Source"),
+                           selectInput("chooseSource", "Options", terms_sources$sources)
+                         ),
+                         mainPanel(h1("News"),
+                                   textOutput("news")),
+                       ))
+
+reddit <- tabPanel("Reddit Analytics",
                       sidebarLayout(
                         sidebarPanel(
                           h1("Choose a Company"),
@@ -87,11 +113,12 @@ page_four <- tabPanel("Reddit Analytics",
 # Define UI
 ui <- fluidPage(
   theme = shinytheme("yeti"),
-  navbarPage("Stockalytics",
+  navbarPage("Stocklytics",
              home_page,
-             page_two,
              news_page,
-             page_four),
+             prediction,
+             reddit,
+             mission),
   # Loading icon
   add_busy_spinner(
     spin = "fingerprint",
@@ -100,6 +127,6 @@ ui <- fluidPage(
     height = "5%",
     width = "5%",
     position = "bottom-right",
-    timeout = 50
+    timeout = 5
   )
 )

@@ -12,8 +12,8 @@ library(plotly)
 
 f <- file.choose()
 df <- read.csv(f)
+top <- head(df, 10) 
 
-top <- head(df, 10)
 symbols <- top[['Symbol']]
 
 result <- sapply(symbols, getSymbols, src = 'yahoo', auto.assign = FALSE, 
