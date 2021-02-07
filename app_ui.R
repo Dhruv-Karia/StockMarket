@@ -68,6 +68,18 @@ news_page <- tabPanel("Top 10 News",
                                   textOutput("news")),
                       ))
 
+prediction <- tabPanel("Prediction Model",
+                       sidebarLayout(
+                         sidebarPanel(
+                           h1("Choose a Company"),
+                           selectInput("chooseQuery", "Options", c(symbols)),
+                           h1("Choose a News Source"),
+                           selectInput("chooseSource", "Options", terms_sources$sources)
+                         ),
+                         mainPanel(h1("News"),
+                                   textOutput("news")),
+                       ))
+
 
 # Define UI
 ui <- fluidPage(
@@ -75,7 +87,8 @@ ui <- fluidPage(
   navbarPage("Stockalytics",
              home_page,
              page_two,
-             news_page),
+             news_page,
+             prediction),
   # Loading icon
   add_busy_spinner(
     spin = "fingerprint",
