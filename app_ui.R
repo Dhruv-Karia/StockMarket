@@ -3,53 +3,45 @@ source("scripts/top_ten.R")
 home_page <- tabPanel(
   "Overview",
   titlePanel("Stock Visualizations"),
-    fluidPage(
-    sidebarLayout(
-      sidebarPanel(
-        helpText(
-          "Select a date range and a stock to examine.
-          Information collected from Yahoo Finance."
-        ),
-        #textInput("symb", "Symbol", "AMC"),
-        dateRangeInput(
-          "dates",
-          "Date range",
-          start = "2013-01-01",
-          end = as.character(Sys.Date())
-        ),
-        
-        selectInput("symb", "Top Stocks:",
-                    c(symbols)),
-        
-        
-        actionButton("get", "Get Stock"),
-        br(),
-        br(),
-        checkboxInput("log", "Plot y axis on log scale",
-                      value = FALSE)
+  sidebarLayout(
+    sidebarPanel(
+      helpText("Select one of the Top 10 stocks to examine"),
+      
+      helpText(
+        "Select a date range and a stock to examine.
+        Information collected from Yahoo Finance."
       ),
       
-      mainPanel(
-        plotOutput(
-          "plot"
-          ),
-        br(),
-        br()
-      )
+      #textInput("symb", "Symbol", "AMC"),
+      dateRangeInput(
+        "dates",
+        "Date range",
+        start = "2013-01-01",
+        end = as.character(Sys.Date())
+      ),
+      
+      selectInput("symb", "Top Stocks:",
+                  c(symbols)),
+      
+      
+      actionButton("get", "Get Stock"),
+      br(),
+      br(),
+      checkboxInput("log", "Plot y axis on log scale",
+                    value = FALSE)
     ),
-    datatable(top_table, 
-              rownames = FALSE,
-              options = list(searching = FALSE,
-                             lengthChange = FALSE,
-                             paging = FALSE,
-                             initComplete = JS(
-                               "function(settings, json) {",
-                               "$(this.api().table().header()).css({'background-color': '#333333', 'color': '#fff'});",
-                               "}")
-                             )
-              )
+    
+    mainPanel(
+      plotOutput("plot"),
+      br(),
+      br(),
+      datatable(top) #%>% formatStyle(),
+    )
   )
 )
+  
+
+
   
 mission <- tabPanel("Mission Statement",
                      sidebarLayout(sidebarPanel(
@@ -85,18 +77,6 @@ news_page <- tabPanel("Top 10 News",
                       ),
                 )
 
-prediction <- tabPanel("Prediction Model",
-                       sidebarLayout(
-                         sidebarPanel(
-                           h1("Choose a Company"),
-                           selectInput("chooseQuery", "Options", c(symbols)),
-                           h1("Choose a News Source"),
-                           selectInput("chooseSource", "Options", terms_sources$sources)
-                         ),
-                         mainPanel(h1("News"),
-                                   textOutput("news")),
-                       ))
-
 reddit <- tabPanel("Reddit Analytics",
                       sidebarLayout(
                         sidebarPanel(
@@ -116,7 +96,6 @@ ui <- fluidPage(
   navbarPage("Stocklytics",
              home_page,
              news_page,
-             prediction,
              reddit,
              mission),
   # Loading icon
