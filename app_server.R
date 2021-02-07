@@ -30,10 +30,19 @@ server <- function(input, output) {
   output$news <- renderDataTable({
     Sys.setenv("NEWS_API_KEY" = "e9521f43b756474db9c3d82833252b6f")
     news_results <- get_everything(query = input$chooseQuery, source = input$chooseSource, api_key = Sys.getenv("NEWS_API_KEY"))
-    # response <- GET("http://newsapi.org/v2/everything?q=apple&from=2021-02-05&to=2021-02-05&sortBy=popularity&apiKey=e9521f43b756474db9c3d82833252b6f", query = input$chooseQuery)
-    # body <- fromJSON(content(response, "text"))
-    
     articles <- news_results$results_df
     return(articles)
+  })
+  
+  output$scatter <- renderDataTable({
+    fig <- ggplot(data = df, aes(x = df$X3.Months.Perf, y = df$Score, color = Rating)) +
+      geom_point()+
+      labs(
+        title = "Fat title",
+        x = "Bruh 1",
+        y = "Bruh 2"
+      )
+    scatter_plot <- ggplotly(fig)
+    return(scatter_plot)
   })
 }

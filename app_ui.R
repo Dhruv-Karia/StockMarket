@@ -86,12 +86,21 @@ news_page <- tabPanel("Top 10 News",
                 )
 
 
+maxed_out_page <- tabPanel(
+  "100% dataset",
+  mainPanel(
+    h1("title"),
+    dataTableOutput("OutputId")
+  )
+)
+
 # Define UI
 ui <- fluidPage(
   theme = shinytheme("yeti"),
   navbarPage("Stockalytics",
              home_page,
              news_page,
+             maxed_out_page,
              page_two
              ),
   # Loading icon
