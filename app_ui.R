@@ -54,11 +54,18 @@ mission <- tabPanel("Mission Statement",
                        )
                      ),
                      mainPanel(
-                       h1("Our Mission:"),
-                       p(
-                         "Our mission is to enable retail traders with the tools
-                         and knowledge  needed to invest like a pro."
-                       )
+                       h1("OUR MISSION"),
+                       p("Our mission is to enable retail traders with the tools and knowledge needed to invest like a pro.
+                         We aim to be the most effective, comprehensive and profitable online trading education portal providing our
+                         customers with professional education and successful trading ideas on the best stocks. We can help you to trade
+                         successfully with our best stocks, amazing trading tools and straightforward analysis, all in an easy-to-use manner."
+                       ),
+                       h1("ABOUT US"),
+                       p("Our app provides an integrated stock trends platform for reading past events, focusing on providing research,
+                         trading, and analytics tools to traders. The platform provides a suite of tools that simplify trading
+                         and analyzing, while offering up opportunities for free education. Our app uses both twitter and reddit pages
+                         to figure out which stocks were talked about the most. Then, through organzing this data, we empower our traders
+                         with the knowledge and tools to trade profitably with forex and stocks.")
                      ),
                      position = "right"))
 
@@ -90,12 +97,20 @@ reddit <- tabPanel("Reddit Analytics",
                       ))
 
 
+maxed_out_page <- tabPanel(
+  "100% dataset",
+  mainPanel(
+    dataTableOutput("OutputId")
+  )
+)
+
 # Define UI
 ui <- fluidPage(
   theme = shinytheme("yeti"),
   navbarPage("Stocklytics",
              home_page,
              news_page,
+             maxed_out_page,
              reddit,
              mission),
   # Loading icon

@@ -1,6 +1,6 @@
 # Define server
 source("scripts/analysis.R")
-source(".Renviron")
+source("apikey.R")
 
 server <- function(input, output) {
   dataInput <- reactive({
@@ -28,7 +28,6 @@ server <- function(input, output) {
   })
   
   output$news <- renderDataTable({
-    Sys.setenv("NEWS_API_KEY" = "e9521f43b756474db9c3d82833252b6f")
     news_results <- get_everything(query = input$chooseQuery, source = input$chooseSource, api_key = Sys.getenv("NEWS_API_KEY"))
     # response <- GET("http://newsapi.org/v2/everything?q=apple&from=2021-02-05&to=2021-02-05&sortBy=popularity&apiKey=e9521f43b756474db9c3d82833252b6f", query = input$chooseQuery)
     # body <- fromJSON(content(response, "text"))
@@ -49,6 +48,24 @@ server <- function(input, output) {
     return(articles)
   })
   
+
+  output$scatter <- renderDataTable({
+    fig <- ggplot(data = df, aes(x = X3.Months.Perf, y = Score, color = Rating)) +
+      geom_point()+
+      labs(
+        title = "Complete Dataset",
+        x = "3 Month Performance",
+        y = "Score"
+      )
+    
+    scatter_plot <- ggplotly(fig)
+    # scatter_plot <- scatter_plot %>%
+    #   animation_opts(
+    #     1000, easing = "elastic", redraw = FALSE
+    #   )
+    return(scatter_plot)
+  })
+
   output[["r_graph"]] <- renderImage({
     outfile <- tempfile(fileext='.gif')
     r <- reddit_urls(search_terms = input[["reddit1"]], subreddit = input[["reddit2"]], page_threshold = 20, sort_by = "new")%>%
@@ -78,5 +95,5 @@ server <- function(input, output) {
           height = 300,
          alt = "This is alternate text"
          
-    )}, deleteFile = TRUE)}
-    
+    )}, deleteFile = TRUE)
+}
