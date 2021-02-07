@@ -26,10 +26,11 @@ server <- function(input, output) {
   
   output$news <- renderText({
     Sys.setenv("NEWS_API_KEY" = "e9521f43b756474db9c3d82833252b6f")
-    news_results <- get_headlines(query = "Biden",
-                                 api_key = Sys.getenv("NEWS_API_KEY"))
-    response <- GET("http://newsapi.org/v2/everything?q=apple&from=2021-02-05&to=2021-02-05&sortBy=popularity&apiKey=e9521f43b756474db9c3d82833252b6f", query = news_results)
-    body <- fromJSON(content(response, "text"))
-    return(news_results)
+    news_results <- get_everything(query = input$chooseQuery, source = input$chooseSource, api_key = Sys.getenv("NEWS_API_KEY"))
+    # response <- GET("http://newsapi.org/v2/everything?q=apple&from=2021-02-05&to=2021-02-05&sortBy=popularity&apiKey=e9521f43b756474db9c3d82833252b6f", query = input$chooseQuery)
+    # body <- fromJSON(content(response, "text"))
+    
+    articles <- news_results$results_df
+    return(articles)
   })
 }
