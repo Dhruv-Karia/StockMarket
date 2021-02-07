@@ -45,28 +45,6 @@ home_page <- tabPanel(
 
 
 mission <- tabPanel("Mission Statement",
-<<<<<<< HEAD
-                    sidebarLayout(sidebarPanel(
-                      h1("ABOUT US"),
-                      p(
-                        "We are Augene Pak, Dhruv Karia, Justin Zeng, and
-                         Max Bennett. We are Informatics majors in the
-                         University of Washington and are each a member of the
-                         Information School's class of 2024."
-                      ),
-                      tags$img(src = "https://ischool.uw.edu/sites/default/files/2020-03/iSchool_og.png", width = "325px")
-                      # https://pbs.twimg.com/profile_images/1113979497261359107/jl4sZWA8_400x400.png
-                    ),
-                    mainPanel(
-                      h1("OUR MISSION"),
-                      p("Our mission is to enable retail traders with the tools and knowledge needed to invest like a pro.
-                         We aim to be the most effective, comprehensive and profitable online trading education portal providing our
-                         customers with professional education and successful trading ideas on the best stocks. We can help you to trade
-                         successfully with our best stocks, amazing trading tools and straightforward analysis, all in an easy-to-use manner."
-                      ),
-                      h1("ABOUT STOCKLYTICS"),
-                      p("Our app provides an integrated stock trends platform for reading past events, focusing on providing research,
-=======
                      sidebarLayout(sidebarPanel(
                        h1("ABOUT US"),
                        p(
@@ -87,7 +65,7 @@ mission <- tabPanel("Mission Statement",
                        ),
                        h1("ABOUT STOCKLYTICS"),
                        p("Our app provides an integrated stock trends platform for reading past events, focusing on providing research,
->>>>>>> 0743b6263c26aefd06f1a964e75e795969af991e
+
                          trading, and analytics tools to traders. The platform provides a suite of tools that simplify trading
                          and analyzing, while offering up opportunities for free education. Our app uses both twitter and reddit pages
                          to figure out which stocks were talked about the most. Then, through organzing this data, we empower our traders
