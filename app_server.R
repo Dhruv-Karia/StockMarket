@@ -28,10 +28,7 @@ server <- function(input, output) {
   })
   
   output$news <- renderDataTable({
-    news_results <- get_everything(query = input$chooseQuery, source = input$chooseSource, api_key = Sys.getenv("NEWS_API_KEY"))
-    # response <- GET("http://newsapi.org/v2/everything?q=apple&from=2021-02-05&to=2021-02-05&sortBy=popularity&apiKey=e9521f43b756474db9c3d82833252b6f", query = input$chooseQuery)
-    # body <- fromJSON(content(response, "text"))
-    
+    news_results <- get_everything(query = input$chooseQuery, source = input$chooseSource, api_key = NEWS_API_KEY)
     articles <- news_results$results_df %>%
       select(title, author, published_at, url) %>%
       rename("Title" = title, "Author" = author, "Date" = published_at, "Link" = url)
@@ -90,10 +87,7 @@ server <- function(input, output) {
     anim_save("outfile.gif", animate(animateplot))
     
     list(src = "outfile.gif",
-         contentType = 'image/gif',
-          width = 400,
-          height = 300,
-         alt = "This is alternate text"
+         contentType = 'image/gif'
          
     )}, deleteFile = TRUE)
 }
