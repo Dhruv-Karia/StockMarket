@@ -5,15 +5,13 @@ home_page <- tabPanel(
   titlePanel("Stock Visualizations"),
   sidebarLayout(
     sidebarPanel(
-<<<<<<< HEAD
       helpText("Select one of the Top 10 stocks to examine"),
-      
-=======
+
       helpText(
         "Select a date range and a stock to examine.
         Information collected from Yahoo Finance."
       ),
->>>>>>> aceaab1fd94e078fd4f2a00d5f3d3225342369d4
+
       #textInput("symb", "Symbol", "AMC"),
       dateRangeInput(
         "dates",
@@ -21,18 +19,18 @@ home_page <- tabPanel(
         start = "2013-01-01",
         end = as.character(Sys.Date())
       ),
-      
+
       selectInput("symb", "Top Stocks:",
                   c(symbols)),
-      
-      
+
+
       actionButton("get", "Get Stock"),
       br(),
       br(),
       checkboxInput("log", "Plot y axis on log scale",
                     value = FALSE)
     ),
-    
+
     mainPanel(
       plotOutput("plot"),
       br(),
@@ -73,6 +71,18 @@ news_page <- tabPanel("Top 10 News",
                                   textOutput("news")),
                       ))
 
+page_four <- tabPanel("Reddit Analytics",
+                      sidebarLayout(
+                        sidebarPanel(
+                          h1("Choose a Company"),
+                          selectInput("reddit1", "Options", c(symbols)),
+                          h1("Choose a Subreddit"),
+                          selectInput("reddit2", "Options", c("stocks", "wallstreetbets", "investing"))
+                        ),
+                        mainPanel(h1("Reddit Engagement for Each Stock"),
+                        withSpinner(imageOutput("r_graph"))),
+                      ))
+
 
 # Define UI
 ui <- fluidPage(
@@ -80,7 +90,8 @@ ui <- fluidPage(
   navbarPage("Stockalytics",
              home_page,
              page_two,
-             news_page),
+             news_page,
+             page_four),
   # Loading icon
   add_busy_spinner(
     spin = "fingerprint",
