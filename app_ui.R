@@ -76,11 +76,14 @@ news_page <- tabPanel("Top 10 News",
                           h1("Choose a Company"),
                           selectInput("chooseQuery", "Options", c(symbols)),
                           h1("Choose a Source"),
-                          selectInput("chooseSource", "Options", terms_category$category)
+                          selectInput("chooseSource", "Options", terms_sources$sources)
+                        ),
+                        mainPanel(
+                          h1("News"),
+                          dataTableOutput("news")
                         )
                       ),
-                      mainPanel(h1("News"), dataTableOutput("news"))
-                      )
+                )
 
 
 # Define UI
