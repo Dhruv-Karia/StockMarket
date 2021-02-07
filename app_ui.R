@@ -13,7 +13,7 @@ home_page <- tabPanel(
         dateRangeInput(
           "dates",
           "Date range",
-          start = "2013-01-01",
+          start = "2020-09-05",
           end = as.character(Sys.Date())
         ),
         selectInput("symb", "Top Stocks:",
@@ -71,7 +71,7 @@ mission <- tabPanel("Mission Statement",
                     ),
                     position = "right"))
 
-news_page <- tabPanel("Trending Stock News",
+news_page <- tabPanel("News Analytics",
                       sidebarLayout(
                         sidebarPanel(
                           h1("Choose a Company"),
