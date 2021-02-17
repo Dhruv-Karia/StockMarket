@@ -1,4 +1,4 @@
-## Link: www.augene.shinyapps.io
+## Link: https://augene.shinyapps.io/stocklytics/
 # StockMarket
 ## Inspiration
 We were inspired by the recent stock market mania with gamestop and wallstreetbets. We wanted to see if there was a way to predict stock prices based on how often a stock is being mentioned on social media platforms such as reddit and twitter. 
